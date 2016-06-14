@@ -28,7 +28,7 @@ gulp.task('sass', function(){
 });
 
 
-gulp.task('runKeystone', shell.task('node keystone.js'));
+gulp.task('serve', shell.task('node keystone.js'));
 gulp.task('watch', [
 
   'watch:sass',
@@ -36,4 +36,4 @@ gulp.task('watch', [
   'watch:lint'
 ]);
 
-gulp.task('default', ['watch', 'runKeystone']);
+gulp.task('default', ['watch', 'serve']);
