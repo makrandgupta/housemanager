@@ -5,7 +5,6 @@ require('dotenv').load();
 // Require keystone
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
-var social = require('keystone-social-login');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -14,7 +13,7 @@ var social = require('keystone-social-login');
 keystone.init({
 
 	'name': 'House Manager',
-	'brand': 'MGSoft',
+	'brand': 'House Manager',
 
 	'sass': 'public',
 	'static': 'public',
@@ -37,30 +36,6 @@ keystone.init({
 
 });
 
-//Social Media Logins
-
-social.config({
-    keystone: keystone,
-    providers: {
-        // google: {
-        //     clientID: 'your-client-id',
-        //     clientSecret: 'your-client-secret'
-        // },
-        // facebook: {
-        //     clientID: 'your-client-id',
-        //     clientSecret: 'your-client-secret'
-        // },
-        github: {
-            clientID: '40477c44871f44365255',
-            clientSecret: 'bc122fd6a2ea2931ec8c4f235ee98a4bfa087f98'
-        },
-        // twitter: {
-        //     clientID: 'your-client-id',
-        //     clientSecret: 'your-client-secret'
-        // }
-    }
-});
-
 // Load your project's Models
 
 keystone.import('models');
@@ -80,14 +55,16 @@ keystone.set('locals', {
 
 keystone.set('routes', require('./routes'));
 
-social.start();
-
 
 // Switch Keystone Email defaults to handlebars
 
 keystone.Email.defaults.templateExt = 'hbs';
 keystone.Email.defaults.templateEngine = require('handlebars');
 
+
+//set cloudinary config 
+
+// keystone.set('cloudinary config', 'cloudinary://344692672545919:Fi7ZlUshlCkOsja-5FhkO0Eajls@makrandgupta' );
 
 // Configure the navigation bar in Keystone's Admin UI
 
