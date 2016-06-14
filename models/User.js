@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
-var social = require('keystone-social-login');
+// var social = require('keystone-social-login');
 
 /**
  * User Model
@@ -32,10 +32,11 @@ User.schema.virtual('canAccessKeystone').get(function () {
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 
 /**
-* Social Media Injection
+* TO BE REPLACEED WITH passport.js
+* KSL Injection
 */
 
-social.plugin(User);
+// social.plugin(User);
 
 /**
  * Registration
