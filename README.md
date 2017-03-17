@@ -1,6 +1,6 @@
 # House Manager
 
-####Feature List: 
+#### Feature List: 
 - Member databse
 - Chore schedules
 - Chore reminders (email + SMS)
